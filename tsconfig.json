@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "baseUrl": ".",
+        "jsx": "react",
+        "lib": [
+            "es6",
+            "dom",
+            "dom.iterable",
+            "scripthost"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "Node",
+        "rootDir": "src",
+        "sourceMap": true,
+        "target": "es5",
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "build",
+        "webpack",
+        "jest",
+        "**/*.spec.ts"
+    ]
+}
