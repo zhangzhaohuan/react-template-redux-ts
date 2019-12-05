@@ -35,15 +35,12 @@ module.exports = {
             {
                 oneOf: [
                     {
-                        test: /\.(js|jsx)$/,
-                        use: 'babel-loader',
-                        exclude: '/node_modules',
-                        include: resolveApp('src')
-                    },
-                    {
                         test: /\.(ts|tsx)$/,
                         include: resolveApp('src'),
                         use: [
+                            {
+                                loader: require.resolve('babel-loader'),
+                            },
                             {
                                 loader: require.resolve('ts-loader'),
                                 options: {
@@ -194,7 +191,7 @@ module.exports = {
                     reuseExistingChunk: true
                 }
             }
-        }
+        },
     },
     externals: {
         React: "react",
@@ -256,6 +253,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         hot: true,
-        stats: 'errors-only'
+        stats: 'errors-only',
+        historyApiFallback: true    //以免刷新页面404
     },
 }
